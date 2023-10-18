@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Test } from "~/components/test/test";
 
 export default component$(() => {
   return (
@@ -10,6 +11,8 @@ export default component$(() => {
         <br />
         Happy coding.
       </p>
+      <h1>booo boo boo</h1>
+      <Test backgroundColor="lime" textColor={"red"} />
     </>
   );
 });
