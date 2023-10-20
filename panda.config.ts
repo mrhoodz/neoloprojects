@@ -14,7 +14,15 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        colors: {
+          "main-bgColor": { value: "#000000", description: "black" },
+          "main-textColor": { value: "#FFFFFF", description: "white" },
+          "orange-bgColor": { value: " #F7931E", description: " orange " },
+        },
+      },
+    },
   },
 
   // The output directory for your css system
