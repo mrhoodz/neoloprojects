@@ -82,15 +82,20 @@ const Areas = component$(() => {
         },
       })}
     >
-      {yourAreas.map((i) => (
-        <AreaCards
-          key={key}
-          service={i.service}
-          metric={i.metric}
-          location={i.location}
-          days={i.days}
-        />
-      ))}
+      {yourAreas.map((i) => {
+        return (
+          <>
+            {console.log(key)}
+            <AreaCards
+              key={key}
+              service={i.service}
+              metric={i.metric}
+              location={i.location}
+              days={i.days}
+            />
+          </>
+        );
+      })}
     </section>
   );
 });
