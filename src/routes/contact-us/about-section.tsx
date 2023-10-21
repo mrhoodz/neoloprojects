@@ -10,13 +10,19 @@ export const AboutSection = component$(() => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
+        paddingTop: "35rem",
+        backgroundColor: "main-bgColor",
+        color: "main-textColor",
+        smOnly: {
+          width: "100vw",
+        },
       })}
     >
       <div
         class={css({
           display: "flex",
           flexDirection: "column",
-          gap: "110rem",
+          gap: "60rem",
         })}
       >
         <Header />
@@ -36,7 +42,7 @@ const Header = component$(() => {
         flexDirection: "column",
         alignItems: "center",
         gap: "19rem",
-        backgroundColor: "rebeccapurple",
+        // backgroundColor: "rebeccapurple",
         width: "100%",
       })}
     >
@@ -56,14 +62,14 @@ const Header = component$(() => {
           position: "relative",
           textAlign: "center",
 
-          width: "1017rem",
+          width: { base: "505rem", md: "1017rem" },
           height: "281rem",
 
-          fontSize: "56rem",
+          fontSize: { base: "34rem", md: "56rem" },
           fontStyle: "normal",
           fontWeight: "500",
           lineHeight: "118%" /* 66.08px */,
-          letterSpacing: "-4.48rem",
+          letterSpacing: { base: "-2.72rem", md: "-4.48rem" },
         })}
       >
         Neoloprojects is largest engineering services provider that has been
@@ -80,9 +86,9 @@ const ImageArea = component$(() => {
         position: "relative",
         backgroundColor: "lime",
 
-        width: "1702rem",
-        height: "818rem",
-        borderRadius: "0px 0px 80rem 80rem",
+        width: { base: "100vw", md: "1702rem" },
+        height: { base: "341rem", md: "818rem" },
+        borderRadius: { base: "0rem", md: "0px 0px 80rem 80rem" },
       })}
     >
       {" "}

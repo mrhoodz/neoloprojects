@@ -12,7 +12,7 @@ export const ServiceHero = component$<ServiceHeroProps>((props) => {
     <section
       class={css({
         position: "relative",
-        width: "100%",
+        width: "100vw",
         height: "917rem",
         backgroundColor: "purple.700",
 
@@ -37,7 +37,7 @@ const HeroImage = component$(() => {
         top: "0rem",
         height: "100%",
         width: "100%",
-        backgroundColor: "lime",
+        // backgroundColor: "lime",
       })}
     >
       <img src="" alt="The hero image goes here" />

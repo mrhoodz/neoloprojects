@@ -2,12 +2,15 @@ import { component$ } from "@builder.io/qwik";
 import { css } from "~/styled-system/css";
 
 export interface CompetenceCardProps {
-  count?: any;
+  service?: string;
+  body?: string;
+  duration?: string;
+  footer?: string;
 }
 
 export const CompetenceCard = component$<CompetenceCardProps>((props) => {
   //   const count = useSignal(0);
-  props.count;
+  props.service;
   return (
     <section
       class={css({
@@ -42,7 +45,7 @@ export const CompetenceCard = component$<CompetenceCardProps>((props) => {
           gap: "21rem",
         })}
       >
-        <h4 class={css({})}>Competence</h4>
+        <h4 class={css({})}>{props.service}</h4>
         <p
           class={css({
             fontSize: "23rem",
@@ -52,8 +55,7 @@ export const CompetenceCard = component$<CompetenceCardProps>((props) => {
             letterSpacing: "-1.518rem",
           })}
         >
-          Years of industry-leading experience define our competence. Your
-          project is in capable hands.
+          {props.body}
         </p>
       </div>
 
@@ -67,7 +69,7 @@ export const CompetenceCard = component$<CompetenceCardProps>((props) => {
           gap: "20rem",
         })}
       >
-        <h4>331+</h4>
+        <h4>{props.duration}</h4>
         <p
           class={css({
             fontSize: "21rem",
@@ -77,7 +79,7 @@ export const CompetenceCard = component$<CompetenceCardProps>((props) => {
             letterSpacing: "-1.386rem",
           })}
         >
-          projects Completed
+          {props.footer}
         </p>
       </div>
     </section>

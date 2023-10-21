@@ -8,7 +8,7 @@ export const ServicesSection = component$(() => {
     <section
       class={css({
         position: "relative",
-        width: "1700rem",
+        width: { base: "505rem", md: "1700rem" },
         marginInline: "auto",
         marginTop: "180rem",
       })}
@@ -53,7 +53,9 @@ const Content = component$(() => {
   return (
     <section
       class={css({
+        position: "relative",
         display: "flex",
+        flexWrap: "wrap",
         gap: "49rem",
       })}
     >

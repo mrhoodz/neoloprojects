@@ -11,6 +11,7 @@ export const Navbar = component$<NavbarProps>((props) => {
   return (
     <div
       class={css({
+        zIndex: "999",
         position: "absolute",
         top: { base: "10rem", md: "45rem" },
         left: { base: "10rem", md: "130rem" },

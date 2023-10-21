@@ -17,7 +17,7 @@ export const SearchComponent = component$<SearchComponentProps>((props) => {
         display: "flex",
         flexDirection: "column",
         gap: "24rem",
-        width: "693rem",
+        width: { base: "439rem", md: "693rem" },
       })}
     >
       <h5

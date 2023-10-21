@@ -5,7 +5,15 @@ import { css } from "~/styled-system/css";
 
 export const ServicesSection = component$(() => {
   return (
-    <section>
+    <section
+      class={css({
+        position: "relative",
+        width: { base: "505rem", md: "1700rem" },
+        marginInline: "auto",
+        marginTop: "180rem",
+        marginBottom: "190rem",
+      })}
+    >
       <Header />
 
       <Content />
@@ -18,18 +26,21 @@ const Header = component$(() => {
     <section
       class={css({
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        gap: "22rem",
       })}
     >
       <h3
         class={css({
           position: "relative",
-          width: "574rem",
-          fontSize: "66rem",
+          textAlign: "center",
+          width: { base: "400rem", md: "574rem" },
+          fontSize: { base: "46rem", md: "66rem" },
           fontStyle: "normal",
           fontWeight: "600",
           lineHeight: "118%" /* 77.88px */,
-          letterSpacing: "-6.6rem",
+          letterSpacing: { base: "-4.6rem", md: "-6.6rem" },
         })}
       >
         We are experts in the engineering space
@@ -44,7 +55,9 @@ const Content = component$(() => {
   return (
     <section
       class={css({
+        position: "relative",
         display: "flex",
+        flexWrap: "wrap",
         gap: "49rem",
       })}
     >

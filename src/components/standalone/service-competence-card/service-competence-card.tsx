@@ -3,10 +3,20 @@ import { css } from "~/styled-system/css";
 
 export interface ServiceCompetenceCardProps {
   variant?: string[];
+  headerMetric?: string;
+  headerDetails?: string;
+  title?: string;
+  body?: string;
+  footer?: string;
 }
 
 interface HeaderProps {
   variant?: any;
+  headerMetric?: string;
+  headerDetails?: string;
+  title?: string;
+
+  body?: string;
 }
 
 export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
@@ -17,14 +27,21 @@ export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
         class={css({
           position: "relative",
           backgroundColor: "orange-bgColor",
-          width: "538rem",
+          width: { base: "505rem", md: "538rem" },
           paddingInline: "23.5rem",
           paddingTop: "54rem",
           paddingBottom: "57rem",
           borderRadius: "38rem",
         })}
       >
-        {x == "big" ? <></> : <Header />}
+        {x == "big" ? (
+          <></>
+        ) : (
+          <Header
+            headerMetric={props.headerMetric}
+            headerDetails={props.headerDetails}
+          />
+        )}
 
         <section
           class={css({
@@ -33,16 +50,16 @@ export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
             gap: "37rem",
           })}
         >
-          <Body variant={x} />
+          <Body variant={x} body={props.body} />
 
-          <Footer />
+          <Footer footer={props.footer} />
         </section>
       </article>
     );
   }
 );
 
-const Header = component$(() => {
+const Header = component$<ServiceCompetenceCardProps>((props) => {
   return (
     <section
       class={css({
@@ -76,7 +93,7 @@ const Header = component$(() => {
           paddingInline: "39.5rem",
         })}
       >
-        3+
+        {props.headerMetric}
       </button>
 
       <button
@@ -84,7 +101,7 @@ const Header = component$(() => {
           paddingInline: "29.5rem",
         })}
       >
-        Years of Experience
+        {props.headerDetails}
       </button>
     </section>
   );
@@ -114,9 +131,7 @@ const Body = component$<HeaderProps>((props) => {
           },
         })}
       >
-        {props.variant == "big"
-          ? "Join Our Team"
-          : " Experience and commitment"}
+        {props.variant == "big" ? "Join Our Tea" : props.title}
       </h3>
 
       <p
@@ -128,15 +143,13 @@ const Body = component$<HeaderProps>((props) => {
           letterSpacing: "-2.16rem",
         })}
       >
-        The Solana network validated by thousand of nodes that operate
-        independently of each other, ensuring your data remains secure and
-        censorship resistant
+        {props.body}
       </p>
     </>
   );
 });
 
-const Footer = component$(() => {
+const Footer = component$<ServiceCompetenceCardProps>(() => {
   return (
     <button
       class={css({

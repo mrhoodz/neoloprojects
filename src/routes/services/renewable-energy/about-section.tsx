@@ -1,4 +1,6 @@
+/* eslint-disable qwik/jsx-key */
 import { component$ } from "@builder.io/qwik";
+import type { ServiceCompetenceCardProps } from "~/components/standalone/service-competence-card/service-competence-card";
 import { ServiceCompetenceCard } from "~/components/standalone/service-competence-card/service-competence-card";
 import { css } from "~/styled-system/css";
 
@@ -11,6 +13,9 @@ export const AboutSection = component$(() => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
+        paddingTop: "35rem",
+        backgroundColor: "main-bgColor",
+        // color: "main-textColor",
       })}
     >
       <div
@@ -37,7 +42,7 @@ const Header = component$(() => {
         flexDirection: "column",
         alignItems: "center",
         gap: "19rem",
-        backgroundColor: "rebeccapurple",
+        color: "main-textColor",
         width: "100%",
       })}
     >
@@ -57,35 +62,58 @@ const Header = component$(() => {
           position: "relative",
           textAlign: "center",
 
-          width: "1017rem",
+          width: { base: "505rem", md: "1017rem" },
           height: "281rem",
 
-          fontSize: "56rem",
+          fontSize: { base: "34rem", md: "56rem" },
           fontStyle: "normal",
           fontWeight: "500",
           lineHeight: "118%" /* 66.08px */,
-          letterSpacing: "-4.48rem",
+          letterSpacing: { base: "-2.72rem", md: "-4.48rem" },
         })}
       >
-        At Neoloprojects, we're the renewable energy experts you can trust. With
-        a focus on sustainability and innovation, we deliver customized
-        solutions that harness the power of clean energy.
+        Neoloprojects is largest engineering services provider that has been
+        helping thousands of people to develop their dream
       </p>
     </section>
   );
 });
 
 const Content = component$(() => {
+  const CardsInfo: ServiceCompetenceCardProps[] = [
+    {
+      headerMetric: "34 +",
+      title: "Safety and Community",
+      headerDetails: "Projects Completed",
+      body: "With years of industry-leading experience, Neoloprojects is your trusted partner in renewable energy. Our proven track record showcases our commitment to excellence and our ability to deliver successful projects, time and again.",
+    },
+    {
+      headerMetric: "3 +",
+      title: "Experience and Commitment",
+      headerDetails: "Years Serving",
+      body: "We prioritize safety in every aspect of our work, ensuring that your renewable energy project is secure and reliable. As a responsible company, we're dedicated to being an asset to the communities we serve. Your project's success benefits not only your organization but also the larger community and environment.",
+    },
+  ];
+
   return (
     <section
       class={css({
         position: "relative",
         display: "flex",
+        flexWrap: "wrap",
         gap: "178rem",
+        paddingBottom: "70rem",
       })}
     >
-      <ServiceCompetenceCard variant={"small" as any} />
-      <ServiceCompetenceCard variant={"small" as any} />
+      {CardsInfo.map((i) => (
+        <ServiceCompetenceCard
+          title={i.title}
+          headerMetric={i.headerMetric}
+          headerDetails={i.headerDetails}
+          body={i.body}
+          variant={"small" as any}
+        />
+      ))}
     </section>
   );
 });
