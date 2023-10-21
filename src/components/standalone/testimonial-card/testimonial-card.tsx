@@ -5,29 +5,20 @@ export interface TestimonialCardProps {
   variant?: string[];
 }
 
-const popper = (variant: any, a: any, b: any) => {
-  // const myVariant:any = variant;
-
-  const x = variant == "mobile" ? a : variant == "tablet" ? b : "505rem";
-
-  return x;
-};
-// const responsivePopper = () => {
-
-//     return { base: "38rem", md: "92rem" }
-// }
-
 export const TestimonialCard = component$<TestimonialCardProps>((props) => {
+  props.variant;
   //   const count = useSignal(0);
-  const variant: any = props.variant;
   return (
     <article
       class={css({
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        width: popper(variant, "505rem", "1480rem"),
+        width: { base: "505rem", md: "1480rem" },
         gap: { base: "38rem", md: "92rem" },
+
+        marginInline: "auto",
+        marginTop: "90rem",
       })}
     >
       {/* header */}

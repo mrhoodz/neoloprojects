@@ -103,5 +103,131 @@ const HeroText = component$(() => {
 });
 
 const MapSection = component$(() => {
-  return <div></div>;
+  return (
+    <div
+      class={css({
+        position: "absolute",
+        top: "299rem",
+        right: "120rem",
+      })}
+    >
+      <section
+        class={css({
+          position: "relative",
+          backgroundColor: "main-bgColor",
+          borderRadius: "40rem",
+          padding: "11rem",
+
+          fontStyle: "normal",
+          fontWeight: "600",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10rem",
+
+          width: "605rem",
+        })}
+      >
+        {/* info side */}
+        <div
+          class={css({
+            position: "relative",
+            marginLeft: "25rem",
+            paddingRight: "55rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "15rem",
+          })}
+        >
+          <ul
+            class={css({
+              display: "flex",
+              gap: "66rem",
+              marginTop: "17rem",
+              marginLeft: "15rem",
+
+              "& li": {
+                position: "relative",
+
+                listStyle: "none",
+                fontSize: "24rem",
+                fontStyle: "normal",
+                fontWeight: "600",
+                lineHeight: "normal" /* 25.4rem */,
+
+                _before: {
+                  content: '" "',
+                  position: "absolute",
+                  height: "10rem",
+                  width: "10rem",
+                  backgroundColor: "lime",
+                  borderRadius: "20rem",
+                  left: "-25rem",
+                  top: "12rem",
+                },
+              },
+            })}
+          >
+            <li>Whatsapp</li>
+            <li>Address</li>
+          </ul>
+
+          <div
+            class={css({
+              display: "flex",
+
+              justifyContent: "space-between",
+              alignItems: "center",
+            })}
+          >
+            <h4
+              class={css({
+                position: "relative",
+                width: "289rem",
+                fontSize: "41rem",
+                fontStyle: "normal",
+                fontWeight: "600",
+                lineHeight: "127%" /* 25.4rem */,
+                letterSpacing: "-3.69rem",
+              })}
+            >
+              Have an idea lets get in touch
+            </h4>
+
+            <button
+              class={css({
+                position: "relative",
+                padding: "20.5rem 60rem",
+                // height:"77rem",
+                // width:"213rem",
+
+                backgroundColor: "main-bgColor",
+                color: "main-textColor",
+                border: "1rem solid",
+                borderColor: "main-textColor",
+                borderRadius: "60rem",
+
+                fontSize: "20rem",
+                fontStyle: "normal",
+                fontWeight: "600",
+                letterSpacing: "-0.5rem",
+              })}
+            >
+              Email Us
+            </button>
+          </div>
+        </div>
+
+        {/* map image */}
+
+        <div
+          class={css({
+            position: "relative",
+            backgroundColor: "lime",
+            borderRadius: "38rem",
+            height: "401rem",
+          })}
+        ></div>
+      </section>
+    </div>
+  );
 });

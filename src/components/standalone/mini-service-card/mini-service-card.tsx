@@ -11,6 +11,7 @@ export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
   return (
     <article
       class={css({
+        position: "relative",
         padding: props.variant == "1" ? "16rem" : "10rem",
         borderRadius: "35rem",
         backgroundColor: "main-bgColor",

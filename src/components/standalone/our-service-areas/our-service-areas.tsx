@@ -14,7 +14,8 @@ export const OurServiceAreas = component$<OurServiceAreasProps>((props) => {
         display: "flex",
         flexDirection: "row-reverse",
         flexWrap: "wrap",
-        width: "506rem",
+        // width: "506rem",
+        width: { base: "506rem", md: "1427rem" },
 
         gap: "58rem",
       })}

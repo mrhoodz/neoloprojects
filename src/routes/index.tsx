@@ -1,19 +1,37 @@
-import { component$ } from "@builder.io/qwik";
+import type { Signal } from "@builder.io/qwik";
+import {
+  component$,
+  createContextId,
+  useContextProvider,
+  useSignal,
+} from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Test } from "~/components/test/test";
+import { Navbar } from "~/components/standalone/navbar/navbar";
+import { HeroSection } from "./hero-section";
+import { AboutSection } from "./about-section";
+import { ServicesSection } from "./services-section";
+import { ServeAboveSection } from "./serve-above-section";
+import { TestimonialCard } from "~/components/standalone/testimonial-card/testimonial-card";
+import { OurServiceArea } from "./OurServiceArea";
+
+export const formContext = createContextId<Signal<string>>(
+  "site.search-context"
+);
 
 export default component$(() => {
+  const searchValue = useSignal("");
+  useContextProvider(formContext, searchValue);
+
   return (
-    <>
-      <h1>Hi 👋</h1>
-      <p>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
-      </p>
-      <h1>booo boo boo</h1>
-      <Test backgroundColor="lime" textColor={"red"} />
-    </>
+    <main>
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <ServeAboveSection />
+      <OurServiceArea />
+      <TestimonialCard />
+    </main>
   );
 });
 

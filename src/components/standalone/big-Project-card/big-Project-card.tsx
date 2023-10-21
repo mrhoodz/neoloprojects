@@ -17,7 +17,7 @@ export const BigProjectCard = component$<BigProjectCardProps>((props) => {
         paddingTop: "53rem",
         paddingInline: "9.5rem",
         paddingBottom: "10rem",
-        width: { base: "484rem", md: "869rem" },
+        width: { base: "504rem", md: "869rem" },
 
         // md: {
         //   minWidth: "869rem",
@@ -90,7 +90,8 @@ export const BigProjectCard = component$<BigProjectCardProps>((props) => {
             class={css({
               position: "relative",
 
-              md: { height: "max-content" },
+              width: "160rem",
+              // md: { height: "max-content" },
               lg: {
                 height: "128rem",
                 width: "128rem",

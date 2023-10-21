@@ -1,5 +1,8 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
+import Fuse from "fuse.js";
+import { formContext } from "~/routes";
 import { css } from "~/styled-system/css";
+import { list } from "~/utils/lists";
 
 export interface SearchComponentProps {
   count?: any;
@@ -7,6 +10,7 @@ export interface SearchComponentProps {
 
 export const SearchComponent = component$<SearchComponentProps>((props) => {
   props.count;
+
   return (
     <section
       class={css({
@@ -36,6 +40,9 @@ export const SearchComponent = component$<SearchComponentProps>((props) => {
 });
 
 const SearchInput = component$(() => {
+  const x = useContext(formContext);
+
+  // console.log(x.value);
   return (
     <>
       <div
@@ -49,6 +56,10 @@ const SearchInput = component$(() => {
         })}
       >
         <input
+          onInput$={(ev: any) => {
+            x.value = ev.target.value;
+            // console.log(ev.target.value);
+          }}
           class={css({
             position: "absolute",
             height: "100%",
@@ -85,7 +96,27 @@ const SearchInput = component$(() => {
 });
 
 const HistorySection = component$(() => {
-  const history = ["Kathu", "Bloumfountain", "Kuruman", "Taung"];
+  const formValue = useContext(formContext);
+
+  const fuseOptions = {
+    threshold: 0.3,
+    keys: [
+      // "title",
+      "author.firstName",
+    ],
+  };
+
+  const fuse = new Fuse(list, fuseOptions);
+  console.log("xxxxxxxxx");
+  // Change the pattern
+  const searchPattern = formValue.value;
+  const fuseSearch = fuse.search(searchPattern);
+
+  // console.log(fuseSearch);
+
+  console.log(formValue.value);
+
+  const history = fuseSearch;
 
   return (
     <ul
@@ -112,7 +143,7 @@ const HistorySection = component$(() => {
           })}
           key={Math.random()}
         >
-          {i}
+          {i.item.author.firstName}
         </li>
       ))}
     </ul>
