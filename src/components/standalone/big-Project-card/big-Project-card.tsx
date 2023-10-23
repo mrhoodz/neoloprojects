@@ -4,6 +4,11 @@ import { css, cx } from "~/styled-system/css";
 
 export interface BigProjectCardProps {
   count?: string;
+  imageURL?: string;
+  subTitle?: string;
+  title?: string;
+  link?: string;
+  // alt?:string
 }
 
 export const BigProjectCard = component$<BigProjectCardProps>((props) => {
@@ -50,7 +55,9 @@ export const BigProjectCard = component$<BigProjectCardProps>((props) => {
             // backgroundColor: "pink",
           })}
         >
-          <h2 class={cx("card-subtitle")}>Renewable Energy</h2>
+          <h2 class={cx("card-subtitle")}>
+            {props.subTitle ? props.subTitle : "Renewable-energy"}
+          </h2>
           <p
             class={css({
               fontFamily: "Poppins",
@@ -61,7 +68,9 @@ export const BigProjectCard = component$<BigProjectCardProps>((props) => {
               letterSpacing: "-4.14rem",
             })}
           >
-            Go green, save the planet and your bills
+            {props.title
+              ? props.title
+              : "Go green, save the planet and your bills"}{" "}
           </p>
         </div>
 
@@ -86,6 +95,7 @@ export const BigProjectCard = component$<BigProjectCardProps>((props) => {
           >
             <img src="images\arrow icon.svg" alt="menu svg icon" />
           </button>
+
           <button
             class={css({
               position: "relative",
@@ -112,7 +122,7 @@ export const BigProjectCard = component$<BigProjectCardProps>((props) => {
               lineHeight: "127%",
             })}
           >
-            Learn More
+            <a href={props.link}>Learn More</a>
           </button>
         </div>
       </div>
@@ -124,8 +134,21 @@ export const BigProjectCard = component$<BigProjectCardProps>((props) => {
           width: "100%",
           height: "559rem",
           backgroundColor: "lime",
+          overflow: "hidden",
+          "& img": {
+            position: "absolute",
+            top: "0rem",
+            left: "0rem",
+            width: { base: "auto", md: "100%" },
+            height: { base: "100%", md: "auto" },
+          },
         })}
-      ></div>
+      >
+        <img
+          src={props.imageURL}
+          alt={props.subTitle + " projects cover image"}
+        />
+      </div>
     </article>
   );
 });

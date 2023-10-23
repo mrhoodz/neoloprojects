@@ -1,8 +1,13 @@
+/* eslint-disable qwik/jsx-img */
 import { component$ } from "@builder.io/qwik";
-import { css, cx } from "~/styled-system/css";
+import { css } from "~/styled-system/css";
 
 export interface MiniServiceCardProps {
   variant?: string;
+  imageURL?: string;
+  subTitle?: string;
+  title?: string;
+  link?: string;
 }
 
 export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
@@ -27,11 +32,21 @@ export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
           position: "relative",
           height: props.variant == "3" ? "330rem" : "395rem",
           width: "100%",
-          backgroundColor: "lime",
+          // backgroundColor: "lime",
           borderRadius: "18rem",
+          overflow: "hidden",
+
+          "& img": {
+            position: "relative",
+            width: "100%",
+            height: "auto",
+          },
         })}
       >
-        image goes here
+        <img
+          src={props.imageURL}
+          alt={props.subTitle + " projects cover image"}
+        />{" "}
       </div>
 
       {/* info wrapper */}
@@ -39,10 +54,12 @@ export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
         <div
           class={css({
             display: "flex",
-            gap: "19rem",
+            paddingLeft: "7rem",
+            gap: "10rem",
             color: "main-textColor",
             alignItems: "center",
             marginBottom: "24rem",
+            // backgroundColor: "pink",
           })}
         >
           {/* info side */}
@@ -57,7 +74,17 @@ export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
             })}
           >
             {"  "}
-            <h2 class={cx("card-subtitle")}>Road Construction</h2>
+            <h2
+              class={css({
+                fontSize: "15rem",
+                fontStyle: "normal",
+                fontWeight: "400",
+                lineHeight: "93.5%" /* 23.375rem */,
+                letterSpacing: "-1.38rem",
+              })}
+            >
+              {props.subTitle ? props.subTitle : "Road Construction"}
+            </h2>
             <p
               class={css({
                 //   leadingTrim: "both",
@@ -70,7 +97,11 @@ export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
                 letterSpacing: "-2.25rem",
               })}
             >
-              Mainatainance and Construction at a level like no other
+              {/* Mainatainance and Construction at a level like no other */}
+
+              {props.title
+                ? props.title
+                : "Mainatainance and Construction at a level like no other"}
             </p>
           </div>
 
@@ -83,6 +114,7 @@ export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
               height: "38rem",
               width: "134rem",
               display: "flex",
+              paddingTop: "2rem",
               justifyContent: "center",
               alignItems: "center",
             })}

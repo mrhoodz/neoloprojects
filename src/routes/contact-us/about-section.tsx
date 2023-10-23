@@ -10,7 +10,7 @@ export const AboutSection = component$(() => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
-        paddingTop: "35rem",
+        paddingTop: "185rem",
         backgroundColor: "main-bgColor",
         color: "main-textColor",
         smOnly: {

@@ -16,6 +16,7 @@ export const PhotoGrid = component$<PhotoGridProps>((props) => {
         gap: "43rem",
 
         backgroundColor: "black",
+        justifyContent: "center",
         // gridTemplateRows:"  553rem"
 
         "& div": {

@@ -28,6 +28,7 @@ export const Header = component$(() => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        // backgroundColor: "lime",
       })}
     >
       <h3
@@ -47,6 +48,11 @@ export const Header = component$(() => {
           fontWeight: "500",
           lineHeight: "118%" /* 73.16px */,
           letterSpacing: "-4.96rem",
+          textAlign: { base: "center", md: "left" },
+
+          // smOnly: {
+          //   textAlign: "center",
+          // },
         })}
       >
         Areas we have served before

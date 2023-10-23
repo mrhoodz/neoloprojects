@@ -1,3 +1,4 @@
+/* eslint-disable qwik/jsx-img */
 import { component$ } from "@builder.io/qwik";
 import { css } from "~/styled-system/css";
 
@@ -12,7 +13,7 @@ export const ServiceHero = component$<ServiceHeroProps>((props) => {
     <section
       class={css({
         position: "relative",
-        width: "100vw",
+        // width: "100vw",
         height: "917rem",
         backgroundColor: "purple.700",
 
@@ -37,10 +38,20 @@ const HeroImage = component$(() => {
         top: "0rem",
         height: "100%",
         width: "100%",
-        // backgroundColor: "lime",
+        overflow: "hidden",
+
+        "& img": {
+          position: "relative",
+          top: "-70rem",
+          width: "100%",
+          height: "auto",
+        },
       })}
     >
-      <img src="" alt="The hero image goes here" />
+      <img
+        src="/images/projects/renewable-energy/hero.jpg"
+        alt="The hero image goes here"
+      />
     </div>
   );
 });
@@ -127,28 +138,29 @@ const Footer = component$(() => {
         >
           .
         </div>
+        <a href="mailto:info@neoloprojects.com?subject = Request for Qoute&body = I would like to request for a about for xxx">
+          <div
+            class={css({
+              backgroundColor: "main-bgColor",
+              border: "3rem solid",
+              borderColor: "main-textColor",
+              borderRadius: "140rem",
 
-        <div
-          class={css({
-            backgroundColor: "main-bgColor",
-            border: "3rem solid",
-            borderColor: "main-textColor",
-            borderRadius: "140rem",
+              padding: "32rem 36rem",
+              color: "main-textColor",
 
-            padding: "32rem 36rem",
-            color: "main-textColor",
-
-            // textEdge: "cap",
-            fontFamily: "Poppins",
-            fontSize: { base: "20rem", md: "24rem" },
-            fontStyle: "normal",
-            fontWeight: "600",
-            lineHeight: "127%" /* 30.48px */,
-            letterSpacing: "-0.6rem",
-          })}
-        >
-          Get Quote
-        </div>
+              // textEdge: "cap",
+              fontFamily: "Poppins",
+              fontSize: { base: "20rem", md: "24rem" },
+              fontStyle: "normal",
+              fontWeight: "600",
+              lineHeight: "127%" /* 30.48px */,
+              letterSpacing: "-0.6rem",
+            })}
+          >
+            Get Quote
+          </div>
+        </a>
       </div>
     </section>
   );

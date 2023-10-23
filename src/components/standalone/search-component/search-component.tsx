@@ -1,6 +1,13 @@
-import { component$, useContext } from "@builder.io/qwik";
+import type { Signal } from "@builder.io/qwik";
+import {
+  component$,
+  createContextId,
+  useContext,
+  useContextProvider,
+  useSignal,
+} from "@builder.io/qwik";
 import Fuse from "fuse.js";
-import { formContext } from "~/routes";
+// import { formContext } from "~/routes";
 import { css } from "~/styled-system/css";
 import { list } from "~/utils/lists";
 
@@ -8,7 +15,14 @@ export interface SearchComponentProps {
   count?: any;
 }
 
+export const formContext = createContextId<Signal<string>>(
+  "site.search-context"
+);
+
 export const SearchComponent = component$<SearchComponentProps>((props) => {
+  const searchValue = useSignal("");
+  useContextProvider(formContext, searchValue);
+
   props.count;
 
   return (
@@ -102,7 +116,8 @@ const HistorySection = component$(() => {
     threshold: 0.3,
     keys: [
       // "title",
-      "author.firstName",
+      "service.title",
+      "service.keywords",
     ],
   };
 
@@ -143,7 +158,7 @@ const HistorySection = component$(() => {
           })}
           key={Math.random()}
         >
-          {i.item.author.firstName}
+          <a href={i.item.link}>{i.item.service.title}</a>
         </li>
       ))}
     </ul>

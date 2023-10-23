@@ -18,7 +18,7 @@ export const TestimonialCard = component$<TestimonialCardProps>((props) => {
         gap: { base: "38rem", md: "92rem" },
 
         marginInline: "auto",
-        marginTop: "90rem",
+        marginTop: "210rem",
       })}
     >
       {/* header */}
@@ -128,6 +128,13 @@ export const TestimonialCard = component$<TestimonialCardProps>((props) => {
               width: "126rem",
               backgroundColor: "lime",
               borderRadius: "90rem",
+              overflow: "hidden",
+
+              "& img": {
+                position: "relative",
+                height: "32rem",
+                width: "32.5rem",
+              },
             })}
           >
             image goes here
@@ -156,14 +163,14 @@ export const TestimonialCard = component$<TestimonialCardProps>((props) => {
                 fontSize: "31rem",
               })}
             >
-              Faroud Jack
+              Lot Mucavele
             </h5>
             <p
               class={css({
                 fontSize: "24rem",
               })}
             >
-              Salim Group Assistant
+              5STAR ENGINEERING
             </p>
           </div>
         </div>
@@ -190,7 +197,7 @@ export const TestimonialCard = component$<TestimonialCardProps>((props) => {
               borderColor: "main-bgColor",
             })}
           >
-            sd
+            4.5
           </button>
 
           <button
@@ -208,7 +215,7 @@ export const TestimonialCard = component$<TestimonialCardProps>((props) => {
               letterSpacing: "-0.475rem",
             })}
           >
-            Renewable Energy
+            <a href="/services/renewable-energy">Renewable Energy</a>
           </button>
         </div>
       </section>

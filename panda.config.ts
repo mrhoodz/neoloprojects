@@ -19,10 +19,35 @@ export default defineConfig({
         colors: {
           "main-bgColor": { value: "#000000", description: "black" },
           "main-textColor": { value: "#FFFFFF", description: "white" },
-          "orange-bgColor": { value: " #F7931E", description: " orange " },
+          "orange-bgColor": { value: "#F7931E", description: " orange " },
+          "purpleBlue-bgColor": {
+            value: "#1F2CA0",
+            description: " purple blueish color ",
+          },
         },
       },
     },
+  },
+
+  staticCss: {
+    css: [
+      {
+        properties: {
+          color: ["purpleBlue-bgColor", "orange-bgColor", "main-textColor"],
+          backgroundColor: [
+            "purpleBlue-bgColor",
+            "orange-bgColor",
+            "main-textColor",
+          ],
+          borderColor: [
+            "purpleBlue-bgColor",
+            "orange-bgColor",
+            "main-textColor",
+            "main-bgColor",
+          ],
+        },
+      },
+    ],
   },
 
   // The output directory for your css system

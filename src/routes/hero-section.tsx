@@ -13,7 +13,10 @@ export const HeroSection = component$(() => {
         paddingLeft: { base: "10rem", md: "140rem" },
       })}
     >
-      <BigProjectCard />
+      <BigProjectCard
+        imageURL="/images/projects/renewable-energy/hero.jpg"
+        link="/services/renewable-energy"
+      />
 
       <div
         class={css({
@@ -60,13 +63,26 @@ const StackedMiniCards = component$(() => {
       })}
     >
       <li class="mini">
-        <MiniServiceCard variant="3" />
+        <MiniServiceCard
+          variant="3"
+          subTitle="Renewable-energy"
+          title="Go green, save the planet
+          and your bills"
+          imageURL="/images/projects/renewable-energy/hero.jpg"
+          link="/services/renewable-energy"
+        />
       </li>
       <li class="mini">
         <MiniServiceCard variant="2" />
       </li>
       <li class="mini">
-        <MiniServiceCard variant="1" />
+        <MiniServiceCard
+          variant="1"
+          subTitle="Agricultural Engineering"
+          title="Precision and innovation driven agriculture"
+          imageURL="/images/projects/renewable-energy/hero.jpg"
+          link="/services/renewable-energy"
+        />
       </li>
     </ul>
   );

@@ -1,30 +1,42 @@
+/* eslint-disable qwik/jsx-img */
 import { component$ } from "@builder.io/qwik";
 import { css } from "~/styled-system/css";
 
 export const AboutSection = component$(() => {
   return (
-    <section
+    <div
       class={css({
         position: "relative",
-
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        marginTop: "60rem",
+        backgroundColor: "main-bgColor",
+        height: { base: "780rem", md: " 980rem" },
+        paddingTop: { base: "20rem", md: "140rem" },
+        marginTop: { base: "0rem", md: "130rem" },
+        marginBottom: { base: " 40rem", md: "730rem" },
       })}
     >
-      <div
+      <section
         class={css({
+          position: "relative",
+
           display: "flex",
+          alignItems: "center",
           flexDirection: "column",
-          gap: "110rem",
+          marginTop: "60rem",
         })}
       >
-        <Header />
+        <div
+          class={css({
+            display: "flex",
+            flexDirection: "column",
+            gap: { base: "30rem", md: "110rem" },
+          })}
+        >
+          <Header />
 
-        <ImageArea />
-      </div>
-    </section>
+          <ImageArea />
+        </div>
+      </section>
+    </div>
   );
 });
 
@@ -37,7 +49,8 @@ const Header = component$(() => {
         flexDirection: "column",
         alignItems: "center",
         gap: "19rem",
-        backgroundColor: "rebeccapurple",
+        color: "white",
+        // backgroundColor: "rebeccapurple",
         width: "100%",
       })}
     >
@@ -79,14 +92,23 @@ const ImageArea = component$(() => {
     <div
       class={css({
         position: "relative",
-        backgroundColor: "lime",
+        // backgroundColor: "lime",
 
         width: { base: "514rem", md: "1702rem" },
         height: { base: "341rem", md: "818rem" },
         borderRadius: { base: "0rem", md: "0px 0px 80rem 80rem" },
+        overflow: "hidden",
+        "& img": {
+          position: "relative",
+          width: "100%",
+          height: "auto",
+        },
       })}
     >
-      {" "}
+      <img
+        src={"/images/pages/home/sections/welding-image.jpg"}
+        alt={"Image of a man welding metal"}
+      />{" "}
     </div>
   );
 });

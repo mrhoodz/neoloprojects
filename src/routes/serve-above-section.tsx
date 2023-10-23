@@ -55,12 +55,13 @@ const Heading = component$(() => {
           fontWeight: "500",
           lineHeight: "118%",
           letterSpacing: "-4.32rem",
+          textAlign: "center",
 
-          smOnly: {
-            display: "flex",
-            justifyContent: "center",
-            textAlign: "center",
-          },
+          // smOnly: {
+          //   display: "flex",
+          //   justifyContent: "center",
+          //   textAlign: "center",
+          // },
 
           // md: {
           //   display: "flex",
@@ -109,11 +110,11 @@ const Content = component$(() => {
     <section
       class={css({
         display: "flex",
-        smOnly: {
-          justifyContent: "center",
-        },
+        justifyContent: "center",
+        smOnly: {},
         gap: "68rem",
         flexWrap: "wrap",
+        // backgroundColor: "red",
       })}
     >
       {competanceCards.map((i) => (

@@ -8,6 +8,9 @@ export interface ServiceCompetenceCardProps {
   title?: string;
   body?: string;
   footer?: string;
+
+  backgroundColor?: string;
+  color?: string;
 }
 
 interface HeaderProps {
@@ -17,16 +20,23 @@ interface HeaderProps {
   title?: string;
 
   body?: string;
+
+  backgroundColor?: string;
+  color?: string;
 }
 
 export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
   (props) => {
     const x: any = props.variant;
+    console.log(props.backgroundColor);
     return (
       <article
         class={css({
           position: "relative",
-          backgroundColor: "orange-bgColor",
+          backgroundColor: props.backgroundColor
+            ? props.backgroundColor
+            : "orange-bgColor",
+          color: props.color ? props.color : "main-bgColor",
           width: { base: "505rem", md: "538rem" },
           paddingInline: "23.5rem",
           paddingTop: "54rem",
@@ -40,6 +50,8 @@ export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
           <Header
             headerMetric={props.headerMetric}
             headerDetails={props.headerDetails}
+            color={props.color}
+            backgroundColor={props.backgroundColor}
           />
         )}
 
@@ -50,9 +62,19 @@ export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
             gap: "37rem",
           })}
         >
-          <Body variant={x} body={props.body} />
+          <Body
+            color={props.color}
+            // backgroundColor={props.backgroundColor}
+            title={props.title}
+            variant={x}
+            body={props.body}
+          />
 
-          <Footer footer={props.footer} />
+          <Footer
+            backgroundColor={props.backgroundColor}
+            color={props.color}
+            footer={props.footer}
+          />
         </section>
       </article>
     );
@@ -60,6 +82,7 @@ export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
 );
 
 const Header = component$<ServiceCompetenceCardProps>((props) => {
+  console.log(props.color);
   return (
     <section
       class={css({
@@ -72,7 +95,8 @@ const Header = component$<ServiceCompetenceCardProps>((props) => {
         "& button": {
           position: "relative",
           border: "4rem solid",
-          borderColor: "main-bgColor",
+          borderColor: props.color ? props.color : "main-bgColor",
+          color: props.color ? props.color : "main-bgColor",
           height: "93rem",
           borderRadius: "50rem",
           marginBottom: "7rem",
@@ -108,6 +132,8 @@ const Header = component$<ServiceCompetenceCardProps>((props) => {
 });
 
 const Body = component$<HeaderProps>((props) => {
+  console.log(props.title);
+  console.log(props.color);
   return (
     <>
       <h3
@@ -125,13 +151,17 @@ const Body = component$<HeaderProps>((props) => {
             position: "absolute",
             height: "90%",
             width: "3rem",
-            backgroundColor: "main-bgColor",
+            backgroundColor: props.color ? props.color : "main-bgColor",
             left: "-24rem",
             top: "6rem",
           },
         })}
       >
-        {props.variant == "big" ? "Join Our Tea" : props.title}
+        {props.variant == "big"
+          ? "Join Our Tea"
+          : props.variant == false
+          ? props.title
+          : props.title}{" "}
       </h3>
 
       <p
@@ -149,7 +179,7 @@ const Body = component$<HeaderProps>((props) => {
   );
 });
 
-const Footer = component$<ServiceCompetenceCardProps>(() => {
+const Footer = component$<ServiceCompetenceCardProps>((props) => {
   return (
     <button
       class={css({
@@ -157,8 +187,8 @@ const Footer = component$<ServiceCompetenceCardProps>(() => {
         width: "max-content",
         padding: "29.5rem 32rem",
         borderRadius: "380rem",
-        color: "main-textColor",
-        backgroundColor: "main-bgColor",
+        color: props.backgroundColor ? props.backgroundColor : "main-bgColor",
+        backgroundColor: props.color ? props.color : "main-textColor",
 
         fontSize: "20rem",
         fontStyle: "normal",

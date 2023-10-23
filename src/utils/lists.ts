@@ -1,30 +1,24 @@
 export const list = [
   {
-    title: "Old Man's War",
-    author: {
-      firstName: "John",
-      lastName: "Scalzi",
+    link: "services/renewable-energy",
+    service: {
+      title: "Renewable Energy",
+      keywords: ["Green", "Environment"],
     },
   },
+
   {
-    title: "The Lock Artist",
-    author: {
-      firstName: "Steve",
-      lastName: "Hamilton",
+    link: "services/mechanical-engineering",
+    service: {
+      title: "Mechanical Engineering",
+      keywords: ["Mechanics", "Engineering"],
     },
   },
-  {
-    title: "HTML5",
-    author: {
-      firstName: "Remy",
-      lastName: "Sharp",
-    },
-  },
-  {
-    title: "Right Ho Jeeves",
-    author: {
-      firstName: "P.D",
-      lastName: "Woodhouse",
-    },
-  },
+  // {
+  //   title: "Right Ho Jeeves",
+  //   author: {
+  //     firstName: "P.D",
+  //     lastName: "Woodhouse",
+  //   },
+  // },
 ];

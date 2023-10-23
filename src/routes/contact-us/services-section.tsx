@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { ProjectOverviewCard } from "~/components/standalone/project-overview-card/project-overview-card";
+import { SearchComponent } from "~/components/standalone/search-component/search-component";
 // import { SearchComponent } from "~/components/standalone/search-component/search-component";
 import { css } from "~/styled-system/css";
 
@@ -46,7 +47,7 @@ const Header = component$(() => {
         We are experts in the engineering space
       </h3>
 
-      {/* <SearchComponent /> */}
+      <SearchComponent />
     </section>
   );
 });

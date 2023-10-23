@@ -3,9 +3,18 @@ import { ProjectOverviewCard } from "~/components/standalone/project-overview-ca
 import { SearchComponent } from "~/components/standalone/search-component/search-component";
 import { css } from "~/styled-system/css";
 
-export const ServicesSection = component$(() => {
+interface ServiceCardProps {
+  title?: string;
+  location?: string;
+  size?: string;
+  year?: string;
+  body?: string;
+}
+
+export const ServicesSection = component$<ServiceCardProps>(() => {
   return (
     <section
+      id="projects"
       class={css({
         position: "relative",
         width: { base: "505rem", md: "1700rem" },
@@ -49,7 +58,39 @@ const Header = component$(() => {
   );
 });
 
+// title?: string,
+// Location?: string,
+// size?: string
+// year?: string
+
 const Content = component$(() => {
+  const serviceCardsDetails: ServiceCardProps[] = [
+    {
+      title: "Agricultural Engineering",
+      location: "Rooisand, Kathu 3033",
+      size: " 400m x 500m",
+      year: "2022",
+      body: "Elevate agricultural productivity with Neoloprojects. Precision and innovation drive our solutions.",
+    },
+
+    {
+      title: "Electrical Engineering",
+      location: "Rooisand, Kathu 3033",
+      size: " 300m x 200m",
+      year: "2022",
+
+      body: "Reliable electrical solutions by Neoloprojects making environments safer and more efficient.",
+    },
+
+    {
+      title: "Road Construction",
+      location: "Rooisand, Kathu 3033",
+      size: " 100m x 50m",
+      year: "2022",
+      body: "Transforming infrastructure and connecting communities with quality and safety at Neoloprojects.",
+    },
+  ];
+
   return (
     <section
       class={css({
@@ -59,9 +100,19 @@ const Content = component$(() => {
         gap: "49rem",
       })}
     >
-      <ProjectOverviewCard variant={"Primary" as any} />
-      <ProjectOverviewCard variant={"Primary" as any} />
-      <ProjectOverviewCard variant={"Primary" as any} />
+      {serviceCardsDetails.map((i) => (
+        <>
+          {" "}
+          <ProjectOverviewCard
+            title={i.title}
+            location={i.location}
+            size={i.size}
+            year={i.year}
+            body={i.body}
+            variant={"Primary" as any}
+          />
+        </>
+      ))}
     </section>
   );
 });

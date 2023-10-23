@@ -13,7 +13,8 @@ export const AboutSection = component$(() => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
-        paddingTop: "35rem",
+        paddingTop: "175rem",
+        paddingBottom: "85rem",
         backgroundColor: "main-bgColor",
         // color: "main-textColor",
       })}
@@ -86,12 +87,16 @@ const Content = component$(() => {
       title: "Safety and Community",
       headerDetails: "Projects Completed",
       body: "With years of industry-leading experience, Neoloprojects is your trusted partner in renewable energy. Our proven track record showcases our commitment to excellence and our ability to deliver successful projects, time and again.",
+      backgroundColor: "purpleBlue-bgColor",
+      color: "main-textColor",
     },
     {
       headerMetric: "3 +",
       title: "Experience and Commitment",
       headerDetails: "Years Serving",
       body: "We prioritize safety in every aspect of our work, ensuring that your renewable energy project is secure and reliable. As a responsible company, we're dedicated to being an asset to the communities we serve. Your project's success benefits not only your organization but also the larger community and environment.",
+      backgroundColor: "orange-bgColor",
+      color: "main-bgColor",
     },
   ];
 
@@ -105,12 +110,16 @@ const Content = component$(() => {
         paddingBottom: "70rem",
       })}
     >
+      {/* div */}
+
       {CardsInfo.map((i) => (
         <ServiceCompetenceCard
           title={i.title}
           headerMetric={i.headerMetric}
           headerDetails={i.headerDetails}
           body={i.body}
+          backgroundColor={i.backgroundColor}
+          color={i.color}
           variant={"small" as any}
         />
       ))}

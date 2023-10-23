@@ -48,10 +48,12 @@ export const Navbar = component$<NavbarProps>((props) => {
             },
           })}
         >
-          <img
-            src="images\NeoloProjects-MiniLogo.svg"
-            alt="Logo for NeoloProjects"
-          />
+          <a href="/">
+            <img
+              src="\images\NeoloProjects-MiniLogo.svg"
+              alt="Logo for NeoloProjects"
+            />
+          </a>
         </div>
 
         {/* all the navlinks */}
@@ -66,10 +68,18 @@ export const Navbar = component$<NavbarProps>((props) => {
               lineHeight: "normal",
             })}
           >
-            <li>Home</li>
-            <li>Projects</li>
-            <li>Contact Us</li>
-            <li>Careers</li>
+            <li>
+              <a href="/"> Home </a>
+            </li>
+            <li>
+              <a href="/services/renewable-energy"> Projects </a>
+            </li>
+            <li>
+              <a href="/contact-us"> Contact Us</a>
+            </li>
+            <li>
+              <a href="/Careers"> Careers</a>
+            </li>
           </ul>
         </nav>
 

@@ -5,6 +5,19 @@ import { css, cx } from "~/styled-system/css";
 
 export interface ProjectOverviewCardProps {
   variant: string[];
+  title?: string;
+  location?: string;
+  size?: string;
+  year?: string;
+  body?: string;
+}
+
+interface ProjectCoverProps {
+  title?: string;
+  location?: string;
+  size?: string;
+  year?: string;
+  body?: string;
 }
 
 export const ProjectOverviewCard = component$<ProjectOverviewCardProps>(
@@ -37,7 +50,17 @@ export const ProjectOverviewCard = component$<ProjectOverviewCardProps>(
           zIndex: "2",
         })}
       >
-        {variant == "Primary" ? <ProjectsCover /> : <ProjectsPicture />}
+        {variant == "Primary" ? (
+          <ProjectsCover
+            title={props.title}
+            location={props.location}
+            size={props.size}
+            body={props.body}
+            year={props.year}
+          />
+        ) : (
+          <ProjectsPicture />
+        )}
       </article>
     );
   }
@@ -59,7 +82,7 @@ d
 </div> */
 }
 
-export const ProjectsCover = component$(() => {
+export const ProjectsCover = component$<ProjectCoverProps>((props) => {
   return (
     <div
       class={css({
@@ -126,7 +149,7 @@ export const ProjectsCover = component$(() => {
               })
             )}
           >
-            New
+            View
           </div>
           <div
             class={cx(
@@ -137,7 +160,7 @@ export const ProjectsCover = component$(() => {
               })
             )}
           >
-            New View
+            Learn More
           </div>
         </div>
         {/* sideB */}
@@ -187,7 +210,7 @@ export const ProjectsCover = component$(() => {
             //   marginBottom: "36rem",
           })}
         >
-          Solar Installation
+          {props.title}
         </h3>
         <ul
           class={css({
@@ -219,16 +242,13 @@ export const ProjectsCover = component$(() => {
           })}
         >
           <li>
-            <h4>Location</h4> <p>Rooisand, Kathu 3033</p>
+            <h4>Location</h4> <p>{props.location}</p>
           </li>
           <li>
-            <h4>Size</h4>{" "}
-            <p>
-              900m <sup>2</sup>{" "}
-            </p>
+            <h4>Size</h4> <p>{props.size}</p>
           </li>{" "}
           <li>
-            <h4>Year</h4> <p>2021</p>
+            <h4>Year</h4> <p>{props.year}</p>
           </li>{" "}
         </ul>
         <section
@@ -240,9 +260,7 @@ export const ProjectsCover = component$(() => {
             letterSpacing: "-2.16rem",
           })}
         >
-          The Solana network validated by thousand of nodes that operate
-          independently of each other, ensuring your data remains secure and
-          censorship resistant
+          {props.body}
         </section>
       </div>
 
