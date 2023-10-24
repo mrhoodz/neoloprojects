@@ -72,7 +72,8 @@ export const Navbar = component$<NavbarProps>((props) => {
               <a href="/"> Home </a>
             </li>
             <li>
-              <a href="/services/renewable-energy"> Projects </a>
+              <a href="#project"> Projects </a>
+              {/* <a href="/services/renewable-energy"> Projects </a> */}
             </li>
             <li>
               <a href="/contact-us"> Contact Us</a>
