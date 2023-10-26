@@ -19,6 +19,7 @@ export default component$(() => {
   return (
     <main class={css({ backgroundColor: "red" })}>
       {/* <Navbar /> */}
+      adasdasd
       <Slot />
     </main>
   );
