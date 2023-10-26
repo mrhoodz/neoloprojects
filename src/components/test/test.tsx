@@ -1,4 +1,4 @@
-import { Slot, component$, useSignal } from "@builder.io/qwik";
+import { Slot, component$ } from "@builder.io/qwik";
 import { css } from "~/styled-system/css";
 
 export interface TestProps {
@@ -8,8 +8,8 @@ export interface TestProps {
 }
 
 export const Test = component$<TestProps>((props) => {
-  const count = useSignal(props.textColor);
-  console.log(count.value, " kkkkkkk");
+  // const count = useSignal(props.textColor);
+  // console.log(count.value, " kkkkkkk");
   return (
     <div
       style={{ backgroundColor: props.backgroundColor }}
