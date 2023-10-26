@@ -43,6 +43,7 @@ lerna-debug.log*
 
 # Panda CSS
 src/styled-system
+src/*stories.tsx
 
 # Vercel
 .vercel
