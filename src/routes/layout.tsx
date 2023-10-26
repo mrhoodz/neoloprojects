@@ -1,5 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
+import { css } from "~/styled-system/css";
 // import { Navbar } from "~/components/standalone/navbar/navbar";
 // import { css } from "~/styled-system/css";
 
@@ -16,7 +17,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export default component$(() => {
   return (
-    <main>
+    <main class={css({ backgroundColor: "red" })}>
       {/* <Navbar /> */}
       <Slot />
     </main>
