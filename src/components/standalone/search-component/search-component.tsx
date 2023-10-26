@@ -1,29 +1,24 @@
-import type { Signal } from "@builder.io/qwik";
 import {
   component$,
-  createContextId,
-  useContext,
-  useContextProvider,
-  useSignal,
+  // useContextProvider,
+  // useSignal,
 } from "@builder.io/qwik";
-import Fuse from "fuse.js";
 // import { formContext } from "~/routes";
 import { css } from "~/styled-system/css";
-import { list } from "~/utils/lists";
 
 export interface SearchComponentProps {
   count?: any;
 }
 
-export const formContext = createContextId<Signal<string>>(
-  "site.search-context"
-);
+// export const formContext = createContextId<Signal<string>>(
+//   "site.search-context"
+// );
 
-export const SearchComponent = component$<SearchComponentProps>((props) => {
-  const searchValue = useSignal("");
-  useContextProvider(formContext, searchValue);
+export const SearchComponent = component$<SearchComponentProps>(() => {
+  // const searchValue = useSignal("");
+  // useContextProvider(formContext, searchValue);
 
-  props.count;
+  // props.count;
 
   return (
     <section
@@ -48,13 +43,13 @@ export const SearchComponent = component$<SearchComponentProps>((props) => {
 
       <SearchInput />
 
-      <HistorySection />
+      {/* <HistorySection /> */}
     </section>
   );
 });
 
 const SearchInput = component$(() => {
-  const x = useContext(formContext);
+  // const x = useContext(formContext);
 
   // console.log(x.value);
   return (
@@ -71,8 +66,8 @@ const SearchInput = component$(() => {
       >
         <input
           onInput$={(ev: any) => {
-            x.value = ev.target.value;
-            // console.log(ev.target.value);
+            // x.value = ev.target.value;
+            console.log(ev.target.value);
           }}
           class={css({
             position: "absolute",
@@ -109,58 +104,58 @@ const SearchInput = component$(() => {
   );
 });
 
-const HistorySection = component$(() => {
-  const formValue = useContext(formContext);
+// const HistorySection = component$(() => {
+//   // const formValue = useContext(formContext);
 
-  const fuseOptions = {
-    threshold: 0.3,
-    keys: [
-      // "title",
-      "service.title",
-      "service.keywords",
-    ],
-  };
+//   const fuseOptions = {
+//     threshold: 0.3,
+//     keys: [
+//       // "title",
+//       "service.title",
+//       "service.keywords",
+//     ],
+//   };
 
-  const fuse = new Fuse(list, fuseOptions);
-  console.log("xxxxxxxxx");
-  // Change the pattern
-  const searchPattern = formValue.value;
-  const fuseSearch = fuse.search(searchPattern);
+//   const fuse = new Fuse(list, fuseOptions);
+//   console.log("xxxxxxxxx");
+//   // Change the pattern
+//   const searchPattern = formValue.value;
+//   const fuseSearch = fuse.search(searchPattern);
 
-  // console.log(fuseSearch);
+//   // console.log(fuseSearch);
 
-  console.log(formValue.value);
+//   console.log(formValue.value);
 
-  const history = fuseSearch;
+//   const history = fuseSearch;
 
-  return (
-    <ul
-      class={css({
-        display: "flex",
-        gap: "25rem",
-      })}
-    >
-      {history.map((i) => (
-        <li
-          class={css({
-            backgroundColor: "main-bgColor",
-            listStyle: "none",
-            width: "max-content",
-            padding: "27.5rem",
-            color: "main-textColor",
-            borderRadius: "48rem",
+//   return (
+//     <ul
+//       class={css({
+//         display: "flex",
+//         gap: "25rem",
+//       })}
+//     >
+//       {history.map((i) => (
+//         <li
+//           class={css({
+//             backgroundColor: "main-bgColor",
+//             listStyle: "none",
+//             width: "max-content",
+//             padding: "27.5rem",
+//             color: "main-textColor",
+//             borderRadius: "48rem",
 
-            fontSize: "23rem",
-            fontStyle: "normal",
-            fontWeight: "600",
-            lineHeight: "normal",
-            letterSpacing: "-2.3rem",
-          })}
-          key={Math.random()}
-        >
-          <a href={i.item.link}>{i.item.service.title}</a>
-        </li>
-      ))}
-    </ul>
-  );
-});
+//             fontSize: "23rem",
+//             fontStyle: "normal",
+//             fontWeight: "600",
+//             lineHeight: "normal",
+//             letterSpacing: "-2.3rem",
+//           })}
+//           key={Math.random()}
+//         >
+//           <a href={i.item.link}>{i.item.service.title}</a>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// });
