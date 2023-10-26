@@ -13,7 +13,7 @@ export interface BigProjectCardProps {
 
 export const BigProjectCard = component$<BigProjectCardProps>((props) => {
   //   const count = useSignal(0);
-  props.count;
+  // props.count;
   return (
     <article
       class={css({

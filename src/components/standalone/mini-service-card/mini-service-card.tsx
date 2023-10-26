@@ -12,7 +12,7 @@ export interface MiniServiceCardProps {
 
 export const MiniServiceCard = component$<MiniServiceCardProps>((props) => {
   //   const count = useSignal(0);
-  props.variant;
+  // props.variant;
   return (
     <article
       class={css({

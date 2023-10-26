@@ -5,8 +5,8 @@ export interface TestimonialCardProps {
   variant?: string[];
 }
 
-export const TestimonialCard = component$<TestimonialCardProps>((props) => {
-  props.variant;
+export const TestimonialCard = component$<TestimonialCardProps>(() => {
+  // props.variant;
   //   const count = useSignal(0);
   return (
     <article

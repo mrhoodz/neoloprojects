@@ -5,8 +5,8 @@ export interface PhotoGridProps {
   count?: any;
 }
 
-export const PhotoGrid = component$<PhotoGridProps>((props) => {
-  props.count;
+export const PhotoGrid = component$<PhotoGridProps>(() => {
+  // props.count;
 
   return (
     <section

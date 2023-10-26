@@ -25,9 +25,9 @@ export const ProjectOverviewCard = component$<ProjectOverviewCardProps>(
     //   const count = useSignal(0);
     const variant: any = props.variant;
 
-    console.log(props.variant as any, " 2132312");
-    console.log(props.variant[0], " hhhhhhhhhhhhh");
-    console.log(props.variant[1], " ffffffffffff");
+    // console.log(props.variant as any, " 2132312");
+    // console.log(props.variant[0], " hhhhhhhhhhhhh");
+    // console.log(props.variant[1], " ffffffffffff");
     return (
       <article
         class={css({

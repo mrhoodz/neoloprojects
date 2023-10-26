@@ -10,7 +10,7 @@ export interface CompetenceCardProps {
 
 export const CompetenceCard = component$<CompetenceCardProps>((props) => {
   //   const count = useSignal(0);
-  props.service;
+  // props.service;
   return (
     <section
       class={css({

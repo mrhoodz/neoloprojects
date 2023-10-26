@@ -5,8 +5,8 @@ export interface ContactUsHeroProps {
   count?: any;
 }
 
-export const ContactUsHero = component$<ContactUsHeroProps>((props) => {
-  props.count;
+export const ContactUsHero = component$<ContactUsHeroProps>(() => {
+  // props.count;
 
   return (
     <section

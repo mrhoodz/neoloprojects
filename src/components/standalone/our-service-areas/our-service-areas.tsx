@@ -5,8 +5,8 @@ export interface OurServiceAreasProps {
   count?: any;
 }
 
-export const OurServiceAreas = component$<OurServiceAreasProps>((props) => {
-  props.count;
+export const OurServiceAreas = component$<OurServiceAreasProps>(() => {
+  // props.count;
   return (
     <section
       class={css({

@@ -28,7 +28,7 @@ interface HeaderProps {
 export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
   (props) => {
     const x: any = props.variant;
-    console.log(props.backgroundColor);
+    // console.log(props.backgroundColor);
     return (
       <article
         class={css({
@@ -82,7 +82,7 @@ export const ServiceCompetenceCard = component$<ServiceCompetenceCardProps>(
 );
 
 const Header = component$<ServiceCompetenceCardProps>((props) => {
-  console.log(props.color);
+  // console.log(props.color);
   return (
     <section
       class={css({
@@ -132,8 +132,8 @@ const Header = component$<ServiceCompetenceCardProps>((props) => {
 });
 
 const Body = component$<HeaderProps>((props) => {
-  console.log(props.title);
-  console.log(props.color);
+  // console.log(props.title);
+  // console.log(props.color);
   return (
     <>
       <h3

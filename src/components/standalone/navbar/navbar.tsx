@@ -6,8 +6,8 @@ export interface NavbarProps {
   textColor?: string;
 }
 
-export const Navbar = component$<NavbarProps>((props) => {
-  props.textColor;
+export const Navbar = component$<NavbarProps>(() => {
+  // props.textColor;
   return (
     <div
       class={css({

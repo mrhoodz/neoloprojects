@@ -6,9 +6,9 @@ export interface ServiceHeroProps {
   count?: any;
 }
 
-export const ServiceHero = component$<ServiceHeroProps>((props) => {
+export const ServiceHero = component$<ServiceHeroProps>(() => {
   //   const count = useSignal(0);
-  props.count;
+  // props.count;
   return (
     <section
       class={css({
